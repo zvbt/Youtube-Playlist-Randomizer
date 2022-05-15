@@ -23,12 +23,21 @@ module.exports = function discord(mainWindow) {
           details: music2,
           state: number2,
           largeImageKey: 'ytpr',
-          largeImageText: 'Youtube Playlist Randomizer',
+          largeImageText: 'Youtube Playlist Randomizer by zvbt#6073',
           smallImageKey: 'none',
           instance: false,
         });
       }
-     
+  if (title.match('Randomize')) {
+    discordClient.updatePresence({
+      details: '     ',
+      state: '     ',
+      largeImageKey: 'ytpr',
+      largeImageText: 'Youtube Playlist Randomizer by zvbt#6073',
+      smallImageKey: 'none',
+      instance: false,
+    });
+     }
 
     
 };
