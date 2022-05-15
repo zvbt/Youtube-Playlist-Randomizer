@@ -1,9 +1,10 @@
 const { electron, app, BrowserWindow } = require('electron');
 const {readFileSync, writeFileSync } = require('fs')
 const fetch = require('cross-fetch')
-
 const discord = require('./discord')
 const obs = require('./obs')
+const { ElectronBlocker, fullLists} = require('@cliqz/adblocker-electron')
+
 
 async function createWindow() {
   mainWindow = new BrowserWindow({
@@ -21,6 +22,23 @@ async function createWindow() {
     darkTheme: true,
     roundedCorners: true,
     center: true
+  });
+  const blocker = await ElectronBlocker.fromLists(
+    fetch,
+    fullLists,
+    {
+      enableCompression: true,
+    },
+    {
+      path: 'engine.bin',
+      read: async (...args) => readFileSync(...args),
+      write: async (...args) => writeFileSync(...args),
+    },
+  );
+  blocker.enableBlockingInSession(mainWindow.webContents.session);
+
+  blocker.on('request-blocked', (request) => {
+    console.log('blocked', request.tabId, request.url);
   });
 
   mainWindow.webContents.on('new-window', (event, url) => {
