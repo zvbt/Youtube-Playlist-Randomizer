@@ -6,18 +6,16 @@
   "description": "Youtube playlists randomizer with outpout of your current playing song for streamer",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . YTPR --overwrite --win32 --icon=./ytpr.png --out=dist --prune=false --asar",
+    "build": "electron-packager . YTPR --overwrite --win32 --icon=./ytpr.png --out=dist --asar",
     "postinstall": "node-prune",
     "clean": "modclean"
   },
   "author": "zvbt",
   "license": "MIT",
   "dependencies": {
-    "@cliqz/adblocker-electron": "^1.23.6",
     "cross-fetch": "^3.1.5",
     "discord-rich-presence": "^0.0.8",
     "electron": "^17.1.2",
-    "electron-store": "^8.0.1",
     "infinite-loop": "^0.2.2",
     "ts-node": "^10.7.0"
   }
