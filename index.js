@@ -41,7 +41,7 @@ async function createWindow() {
     mainWindow = null;
   });
     
-  mainWindow.setIcon('./ytpr.ico');
+  mainWindow.setIcon('./assets/ytpr.ico');
 }
 
 

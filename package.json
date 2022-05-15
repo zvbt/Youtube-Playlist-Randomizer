@@ -6,7 +6,7 @@
   "description": "Youtube playlists randomizer with outpout of your current playing song for streamer",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . YTPR --overwrite --win32 --icon=./ytpr.png --out=dist --asar",
+    "build": "electron-packager . YTPR --overwrite --win32 --icon=./assets/ytpr.png --out=dist --asar",
     "postinstall": "node-prune",
     "clean": "modclean"
   },
